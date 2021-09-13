@@ -1,0 +1,26 @@
+syntax = "v1"
+
+info(
+	title: // TODO: add title
+	desc: // TODO: add description
+	author: "Hong Hu"
+	email: "hong.hu@anker.com"
+)
+
+type request {
+	// TODO: add members here and delete this comment
+	Url string `form:"url"`
+}
+
+type response {
+	// TODO: add members here and delete this comment
+	Shorten string `json:"shorten"`
+}
+
+service user_info-api {
+	@handler GetUser // TODO: set handler name and delete this comment
+	get /users/id/:userId(request) returns(response)
+	
+	@handler CreateUser // TODO: set handler name and delete this comment
+	post /users/create(request)
+}
