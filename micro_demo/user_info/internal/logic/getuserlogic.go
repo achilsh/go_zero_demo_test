@@ -26,5 +26,7 @@ func NewGetUserLogic(ctx context.Context, svcCtx *svc.ServiceContext) GetUserLog
 func (l *GetUserLogic) GetUser(req types.Request) (*types.Response, error) {
 	// todo: add your logic here and delete this line
 
-	return &types.Response{}, nil
+	return &types.Response{
+		Shorten: req.Url + ", this is test",
+	}, nil
 }
