@@ -26,5 +26,7 @@ func NewGetMessageLogic(ctx context.Context, svcCtx *svc.ServiceContext) *GetMes
 func (l *GetMessageLogic) GetMessage(in *message.MessageReq) (*message.MessageResp, error) {
 	// todo: add your logic here and delete this line
 
-	return &message.MessageResp{}, nil
+	return &message.MessageResp{
+		Greet: in.Name + " , this rpc server response",
+	}, nil
 }
