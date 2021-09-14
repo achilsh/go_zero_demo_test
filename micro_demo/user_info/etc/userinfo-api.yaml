@@ -1,7 +1,7 @@
 Name: user_info-api
 Host: 0.0.0.0
 Port: 8888
-RpcNode:  #新增rpc 节点配置，这样业务服务就可以调用依赖的服务
+RpcNode:  #新增rpc 节点配置，名字和internal/config/config.go文件中定义一致，这样业务服务就可以调用依赖的服务
   Etcd:
     Hosts:
       - 127.0.0.1:2379

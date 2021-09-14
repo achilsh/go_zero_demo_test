@@ -1,3 +1,15 @@
 Name: book-api
 Host: 0.0.0.0
 Port: 8888
+
+Add:  # 这个和 internal/config/config.go 定义的配置节点名保持一致
+  Etcd:
+    Hosts:
+      - localhost:2379
+    Key: add.rpc
+
+Check: # 这个和 internal/config/config.go 定义的配置节点名保持一致
+  Etcd:
+    Hosts:
+      - localhost:2379
+    Key: check.rpc
