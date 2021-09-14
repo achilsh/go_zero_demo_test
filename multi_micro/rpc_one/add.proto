@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package rpc_one ;
+
+message RpcOneReq {
+  string book = 1;
+  int64 price = 2;
+}
+
+message RpcOneResp {
+    bool ok = 1;
+}
+
+service RpcOne {
+  rpc greet (RpcOneReq) returns (RpcOneResp);
+}
