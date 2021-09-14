@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package message ;
+
+message MessageReq {
+  string name = 1;
+}
+
+message MessageResp {
+  string greet = 1;
+}
+
+service MessageSvr {
+  rpc getMessage (MessageReq) returns (MessageResp);
+}
