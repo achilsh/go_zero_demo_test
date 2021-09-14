@@ -1,3 +1,8 @@
 Name: user_info-api
 Host: 0.0.0.0
 Port: 8888
+RpcNode:  #新增rpc 节点配置，这样业务服务就可以调用依赖的服务
+  Etcd:
+    Hosts:
+      - 127.0.0.1:2379
+    Key: message.rpc  ##是 rpc 节点message的配置key,见 message rpc 节点配置项
