@@ -26,5 +26,5 @@ func NewGreetLogic(ctx context.Context, svcCtx *svc.ServiceContext) *GreetLogic 
 func (l *GreetLogic) Greet(in *rpc_one.RpcOneReq) (*rpc_one.RpcOneResp, error) {
 	// todo: add your logic here and delete this line
 
-	return &rpc_one.RpcOneResp{}, nil
+	return &rpc_one.RpcOneResp{Ok: true}, nil
 }

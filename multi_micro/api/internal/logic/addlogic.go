@@ -35,6 +35,6 @@ func (l *AddLogic) Add(req types.Request) (*types.Response, error) {
 	_ = r
 
 	return &types.Response{
-		Ok: true,
+		Ok: r.Ok,
 	}, nil
 }
