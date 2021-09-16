@@ -6,3 +6,7 @@ RpcNode:  #新增rpc 节点配置，名字和internal/config/config.go文件中�
     Hosts:
       - 127.0.0.1:2379
     Key: message.rpc  ##是 rpc 节点message的配置key,见 message rpc 节点配置项
+
+
+DataS: root:123456@tcp(localhost:3306)/gozero  #key和 internal/config/config.go文件定义一致
+Table: book    # key 和internal/config/config.go 文件定义一致，value 为数据库表名
