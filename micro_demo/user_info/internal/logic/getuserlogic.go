@@ -32,7 +32,7 @@ func (l *GetUserLogic) GetUser(req types.Request) (*types.Response, error) {
 
 	//insert db op ...
 	b := model.Book{
-		Book: "this test book: 0",
+		Book:  "this test book: 1",
 		Price: 12312,
 	}
 
@@ -53,9 +53,6 @@ func (l *GetUserLogic) GetUser(req types.Request) (*types.Response, error) {
 		return nil, errors.New("ret is nil")
 	}
 	l.Info("find book: %v", retb)
-
-
-
 
 	// 调用依赖服务： 通过上下文获取依赖服务的client， 调用对应接口
 	ret, e := l.svcCtx.MessageRpc.GetMessage(l.ctx, &messagesvr.MessageReq{Name: "req data for rpc"})
