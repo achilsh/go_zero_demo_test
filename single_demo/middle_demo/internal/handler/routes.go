@@ -16,8 +16,31 @@ func RegisterHandlers(engine *rest.Server, serverCtx *svc.ServiceContext) {
 			[]rest.Route{
 				{
 					Method:  http.MethodGet,
-					Path:    "/users/id/:userId",
+					Path:    "/users/id/:name",
 					Handler: handlerNameHandler(serverCtx),
+				},
+			}...,
+		),
+	)
+
+	engine.AddRoutes(
+		[]rest.Route{
+			{
+				Method:  http.MethodGet,
+				Path:    "/no_middle/id/:name",
+				Handler: handlerNomiddleNameHandler(serverCtx),
+			},
+		},
+	)
+
+	engine.AddRoutes(
+		rest.WithMiddlewares(
+			[]rest.Middleware{serverCtx.AuthMiddle_2},
+			[]rest.Route{
+				{
+					Method:  http.MethodGet,
+					Path:    "/middle_2/id/:name",
+					Handler: handlerMiddle_2Handler(serverCtx),
 				},
 			}...,
 		),

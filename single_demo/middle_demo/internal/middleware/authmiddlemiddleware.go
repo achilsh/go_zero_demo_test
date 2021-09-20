@@ -13,7 +13,7 @@ type AuthMiddleMiddleware struct {
 
 func NewAuthMiddleMiddleware(ctx context.Context, data string) *AuthMiddleMiddleware {
 	return &AuthMiddleMiddleware{
-		Logger: logx.WithContext(ctx),
+		Logger:  logx.WithContext(ctx),
 		ResData: data, //创建中间件数据
 	}
 }
@@ -21,7 +21,7 @@ func NewAuthMiddleMiddleware(ctx context.Context, data string) *AuthMiddleMiddle
 func (m *AuthMiddleMiddleware) Handle(next http.HandlerFunc) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		// TODO generate middleware implement function, delete after code implementation
-		m.Infof("thiis middleware, data: %s", m.ResData) //增加中间件消息处理
+		m.Infof("this middleware, data: %s", m.ResData) //增加中间件消息处理
 		// Passthrough to next handler if need
 		next(w, r)
 	}

@@ -10,7 +10,6 @@ info(
 
 type request {
 	Name string `path:"name,options=you|me"` // TODO: add members here and delete this comment
-
 }
 
 type response {
@@ -18,9 +17,23 @@ type response {
 }
 
 @server(
-	middleware: AuthMiddle //声明当前service需要开启中间件
+	middleware: AuthMiddle //声明service需要开启中间件
 )
+//下面第一个service受上面@server定义的中间控制
 service template {
 	@handler handlerName // 声明一个handler TODO: replace handler name and delete this comment
-	get /users/id/:userId (request) returns (response)
+	get /users/id/:name (request) returns (response)  //:name 必须和 request 中的path:name tag一致
+}
+
+service template {
+	@handler handlerNomiddleName //不受上面中间件的控制
+	get /no_middle/id/:name (request) returns (response)
+}
+
+@server (
+	middleware: AuthMiddle_2 //又声明service需要开启中间件
+)
+service template {
+	@handler handlerMiddle_2 //仅受相邻的上面中间件控制
+	get /middle_2/id/:name (request) returns (response)
 }
