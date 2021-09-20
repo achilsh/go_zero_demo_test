@@ -10,3 +10,11 @@ RpcNode:  #新增rpc 节点配置，名字和internal/config/config.go文件中�
 
 DataS: root:123456@tcp(localhost:3306)/gozero  #key和 internal/config/config.go文件定义一致
 Table: book    # key 和internal/config/config.go 文件定义一致，value 为数据库表名
+
+
+Log:
+  ServiceName: user_info
+  Mode: file    # console|file|volume
+  Path: logs
+  Level: info   # info|error|severe; 其中info:(打印所有级别的日志,特别是统计日志)，error:(打印 errors, slows, stacks 日志)；severe:(仅打印 server 级别日志)
+  KeepDays: 1

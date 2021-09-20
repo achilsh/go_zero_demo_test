@@ -9,3 +9,11 @@ DataSource: root:123456@tcp(localhost:3306)/gozero
 Table: shorturl  #表名配置 不用于实际查询，只是用于业务做逻辑
 Cache:
   - Host: localhost:6379  # 缓存配置和db配置并没有一一对应，关联起来由业务来做，不在配置上限定
+
+
+Log:
+  ServiceName: message.rpc
+  Mode: file    # console|file|volume
+  Path: logs
+  Level: info   # info|error|severe; 其中info:(打印所有级别的日志,特别是统计日志)，error:(打印 errors, slows, stacks 日志)；severe:(仅打印 server 级别日志)
+  KeepDays: 1

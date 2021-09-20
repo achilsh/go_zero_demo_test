@@ -1,3 +1,10 @@
 Name: template
 Host: 0.0.0.0
 Port: 8888
+
+Log:
+  ServiceName: template
+  Mode: file    # console|file|volume
+  Path: logs
+  Level: info   # info|error|severe; 其中info:(打印所有级别的日志,特别是统计日志)，error:(打印 errors, slows, stacks 日志)；severe:(仅打印 server 级别日志)
+  KeepDays: 1
