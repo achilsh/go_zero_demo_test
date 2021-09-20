@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"middle_demo/internal/middleware"
 
 	"middle_demo/internal/config"
 	"middle_demo/internal/handler"
@@ -23,6 +24,11 @@ func main() {
 	ctx := svc.NewServiceContext(c)
 	server := rest.MustNewServer(c.RestConf)
 	defer server.Stop()
+
+	// [begin] 增加全局中间件逻辑:
+	server.Use(middleware.NewGlobalMiddleWare().Handle) //不是调用Handle, 而是将 Handle 函数付给框架.
+
+	// [end]  增加全局中间件逻辑.
 
 	handler.RegisterHandlers(server, ctx)
 

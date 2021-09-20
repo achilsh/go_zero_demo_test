@@ -31,7 +31,7 @@ service template {
 }
 
 @server (
-	middleware: AuthMiddle_2 //又声明service需要开启中间件
+	middleware: AuthMiddle_2 //又声明service需要开启中间件,该值 AuthMiddle_2将被自动使用在文件internal/handler/routes.go文件.
 )
 service template {
 	@handler handlerMiddle_2 //仅受相邻的上面中间件控制
